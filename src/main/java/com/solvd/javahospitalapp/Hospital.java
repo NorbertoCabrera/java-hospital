@@ -3,6 +3,8 @@ package com.solvd.javahospitalapp;
 
 
 import com.solvd.javahospitalapp.CustomLinkList.CustomLinkedList;
+import com.solvd.javahospitalapp.lamdaFunctionsExamples.GoodSalary;
+import com.solvd.javahospitalapp.lamdaFunctionsExamples.NameLengthChecker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,7 +19,7 @@ public class Hospital{
     public static void main(String[] args) {
 
 
-       logger.info("HEY I'M THE LOGGER!!!");
+
         // here I'm testing the exception handling with resources
       /*  try (Classes.MedicalRecordReader recordReader = new Classes.MedicalRecordReader("./medicalRecords.txt")){
             String medicalRecord = recordReader.readMedicalRecord();
@@ -48,7 +50,15 @@ public class Hospital{
         Admin.setDepartments(pharmacy);
         logger.info("lista de departamentos: "+ Admin.getDepartments());
 
+        //here we ask Administration to write the Employees' info in a file
         Admin.printToFile();
+
+        //here we test our predicate lambda function that evaluates an employee's salary
+        GoodSalary goodSalaryChecker = new GoodSalary(30000);
+        logger.info("Is Carlo's salary, a good salary?: "+goodSalaryChecker.isGoodSalary.test(carlos.getSalary()));
+        //test of function<T,R> lambda
+        NameLengthChecker nameLengthChecker = new NameLengthChecker();
+        logger.info("length of carlos' name: "+ nameLengthChecker.employeeNameLength.apply(carlos.getFirstName()) );
 
         //custom link list implementation:
         /*
