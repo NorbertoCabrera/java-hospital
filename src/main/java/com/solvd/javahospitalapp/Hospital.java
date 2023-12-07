@@ -48,6 +48,7 @@ public class Hospital{
         Admin.setDepartments(pharmacy);
         logger.info("lista de departamentos: "+ Admin.getDepartments());
 
+        Admin.printToFile();
 
         //custom link list implementation:
         /*
